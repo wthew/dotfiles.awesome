@@ -5,13 +5,15 @@ local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
 local colors = require('themes.dracula.colors')
 
+local height = dpi(38)
+
 local bar = function(s)
 
     s.panel = awful.wibox({
         ontop = true,
         screen = s,
         type = 'dock',
-        height = dpi(32),
+        height = height,
         width = s.geometry.width,
         x = s.geometry.x,
         y = s.geometry.y,
@@ -22,7 +24,7 @@ local bar = function(s)
     })
 
     s.panel:struts{
-        top = dpi(32)
+        top = height - 4
     }
 
     function bar_toggle()
@@ -55,6 +57,7 @@ local bar = function(s)
 
     s.end_session = require('widget.bar.end-session')(colors.comment, 7)
     s.clock = require('widget.bar.clock')(colors.cyan, 7)
+    s.keyboard = require('widget.bar.keyboard')(colors.cyan, 7)
     s.calendar = require('widget.bar.calendar')(colors.yellow, 7)
     s.ram = require('widget.bar.ram')(colors.purple, 7)
     s.brightness = require('widget.bar.brightness')(colors.selection, 7)
@@ -69,22 +72,23 @@ local bar = function(s)
         expand = 'none',
         {
             layout = wibox.layout.fixed.horizontal,
-            spacing = dpi(5),
+            spacing = dpi(16),
             s.menu,
             s.focused
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            spacing = dpi(5),
-            tags
+            spacing = dpi(16),
+            s.clock,
         },
         {
             layout = wibox.layout.fixed.horizontal,
-            spacing = dpi(5),
+            spacing = dpi(16),
             s.brightness,
             s.notificationCenterBar,
             s.calendar,
-            s.clock,
+            tags,
+            s.keyboard,
             s.end_session
         }
     }

@@ -9,6 +9,8 @@ local hotkeys_popup = require('awful.hotkeys_popup').widget
 local hotkeys_popup_customh = require('module.hotkeys-popup')
 local hotkeys_popup_custom_2 = require('module.hotkeys-popup-2')
 
+local rofi = require('library.rofi')
+
 require('awful.autofocus')
 
 local globalKeys = awful.util.table.join(
@@ -124,8 +126,8 @@ local globalKeys = awful.util.table.join(
 
   -- Default programs
   awful.key(
-  	{modkey},
-  	"Return",
+  	{"Control", "Mod1"},
+  	"t",
   	function ()
   		awful.spawn(apps.default.terminal)
     end,
@@ -177,7 +179,14 @@ local globalKeys = awful.util.table.join(
 		{description = "Open Nemo", group = "Default programs"}
 	),
 
-	-- awful.key({modkey}, "r", function () run_shell.launch() end, {description = "Run Shell", group = "Default programs"}),
+  awful.key(
+	{modkey}, 
+	"r", 
+	function ()
+		rofi.test()
+	end, 
+	{description = "Run Shell", group = "Default programs"}
+  ),
 
   awful.key(
 		{modkey, "Control"},

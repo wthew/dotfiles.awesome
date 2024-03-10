@@ -1,6 +1,6 @@
 return {
   default = {
-    terminal = "gnome-terminal",
+    terminal = "wezterm",
     editor = "code",
     browser = "firefox",
     file_manager = "nautilus",

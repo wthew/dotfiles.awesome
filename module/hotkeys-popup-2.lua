@@ -11,7 +11,7 @@ local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 local colors = require('themes.dracula.colors')
 
-local matcher = require("gears.matcher")()
+local matcher = gears.matcher
 
 -- Stripped copy of this module https://github.com/copycat-killer/lain/blob/master/util/markup.lua:
 local markup = {}

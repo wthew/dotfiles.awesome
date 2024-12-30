@@ -4,6 +4,7 @@ local gears = require('gears')
 local clickable_container = require('widget.clickable-container')
 local dpi = require('beautiful').xresources.apply_dpi
 local icons = require('themes.icons')
+local colors = require('themes.dracula.colors')
 
 local volume_widget = require('awesome-wm-widgets.volume-widget.volume')
 
@@ -13,6 +14,9 @@ local return_button = function(color, space)
             {
 
                 {
+                    volume_widget {
+                        widget_type = 'icon_and_text'
+                    },
                     layout = wibox.layout.fixed.horizontal,
                     text = 'test'
                 },
@@ -24,7 +28,7 @@ local return_button = function(color, space)
             },
             shape = gears.shape.rounded_bar,
             bg = color,
-            fg = '#DDDDDD',
+            fg = colors.white,
             widget = wibox.container.background
         },
         top = dpi(5),

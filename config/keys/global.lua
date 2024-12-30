@@ -274,7 +274,7 @@ local globalKeys = awful.util.table.join(
 		{modkey},
 		"space",
 		function ()
-			awful.spawn("/home/well/.config/rofi/bin/launcher_misc")
+			awful.spawn("/home/well/.config/rofi/scripts/launcher_t1")
     end,
 		{description = "See Apps", group = "Layout"}
 	),

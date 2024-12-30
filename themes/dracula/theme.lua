@@ -1,12 +1,13 @@
 local colors = require('themes.dracula.colors')
+local dpi = require('beautiful').xresources.apply_dpi
 
 local theme = {}
 
 theme.useless_gap   = 5
-theme.border_width  = 0
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+theme.border_width  = 10
+theme.border_normal = colors.green
+theme.border_focus  = colors.magenta
+theme.border_marked = colors.cyan
 
 theme.hotkeys_bg = colors.selection
 theme.hotkeys_fg = colors.white

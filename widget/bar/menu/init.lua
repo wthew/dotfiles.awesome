@@ -38,21 +38,13 @@ local return_button = function(color, space)
   	}
 
 		widget_button:buttons(
-			gears.table.join(
+			gears.table.join( 
 				awful.button(
 					{},
 					1,
 					nil,
 					function()
-						awesome.emit_signal("cc:toggle")
-					end
-				),
-				awful.button(
-					{},
-					3,
-					nil,
-					function()
-						awful.spawn.with_shell('./.config/xmenu/xmenu.sh')
+						awful.spawn("/home/well/.config/rofi/scripts/launcher_t1")
 					end
 				)
 			)

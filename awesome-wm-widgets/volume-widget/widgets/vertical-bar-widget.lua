@@ -3,13 +3,13 @@ local beautiful = require('beautiful')
 local gears = require("gears")
 
 local ICON_DIR = os.getenv("HOME") .. '/.config/awesome/awesome-wm-widgets/volume-widget/icons/'
-
+local theme = require("themes.dracula.colors")
 local widget = {}
 
 function widget.get_widget(widgets_args)
     local args = widgets_args or {}
 
-    local main_color = args.main_color or beautiful.fg_normal
+    local main_color = args.main_color or theme.white
     local mute_color = args.mute_color or beautiful.fg_urgent
     local bg_color = args.bg_color or '#ffffff11'
     local width = args.width or 10

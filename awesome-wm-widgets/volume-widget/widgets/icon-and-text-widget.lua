@@ -4,6 +4,7 @@ local beautiful = require('beautiful')
 local widget = {}
 
 local ICON_DIR = os.getenv("HOME") .. '/.config/awesome/awesome-wm-widgets/volume-widget/icons/'
+local theme = require("themes.dracula.colors")
 
 function widget.get_widget(widgets_args)
     local args = widgets_args or {}
@@ -24,7 +25,8 @@ function widget.get_widget(widgets_args)
         {
             id = 'txt',
             font = font,
-            widget = wibox.widget.textbox
+            widget = wibox.widget.textbox,
+            fg = theme.cyan
         },
         layout = wibox.layout.fixed.horizontal,
         set_volume_level = function(self, new_value)

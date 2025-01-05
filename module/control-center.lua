@@ -186,7 +186,7 @@ local controlCenter = function(s)
       type = 'splash',
       height = s.geometry.height-dpi(35),
       width = dpi(400),
-      bg = '#282a36aa',
+      bg = 'transparent',
       fg = '#f8f8f2',
     }
   )

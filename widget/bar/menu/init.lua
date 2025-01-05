@@ -44,7 +44,7 @@ local return_button = function(color, space)
 					1,
 					nil,
 					function()
-						awful.spawn("/home/well/.config/rofi/scripts/launcher_t1")
+						awesome.emit_signal("cc:toggle")
 					end
 				)
 			)

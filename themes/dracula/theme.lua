@@ -3,16 +3,16 @@ local dpi = require('beautiful').xresources.apply_dpi
 
 local theme = {}
 
-theme.useless_gap   = 5
-theme.border_width  = 10
-theme.border_normal = colors.green
-theme.border_focus  = colors.magenta
-theme.border_marked = colors.cyan
+theme.useless_gap   = 4
+theme.border_width  = 3
+theme.border_normal = colors.background
+theme.border_focus  = colors.purple
+theme.border_marked = colors.orange
 
-theme.hotkeys_bg = colors.selection
-theme.hotkeys_fg = colors.white
-theme.hotkeys_modifiers_fg = colors.magenta
-theme.hotkeys_border_color = colors.green
-theme.hotkeys_group_margin = 10
+theme.bg_normal = colors.comment
+theme.bg_systray = colors.comment
+theme.systray_icon_spacing = 4
+
+theme.font = "Monocraft Nerd Font"
 
 return theme

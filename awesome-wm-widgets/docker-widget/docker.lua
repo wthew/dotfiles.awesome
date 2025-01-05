@@ -374,4 +374,4 @@ local function worker(user_args)
     return docker_widget
 end
 
-return setmetatable(docker_widget, { __call = function(_, ...) return worker(...) end })
+return worker 

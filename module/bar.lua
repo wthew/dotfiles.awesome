@@ -4,6 +4,7 @@ local beautiful = require('beautiful')
 local dpi = beautiful.xresources.apply_dpi
 local clickable_container = require('widget.clickable-container')
 local colors = require('themes.dracula.colors')
+local theme = require('themes.dracula.theme')
 
 local height = dpi(32)
 
@@ -20,11 +21,12 @@ local bar = function(s)
         stretch = false,
         visible = true,
         bg = 'transparent',
-        fg = '#000000'
+        fg = '#000000',
+        font = theme.font..' 8'
     })
 
     s.panel:struts{
-        top = height - 4
+        top = height - 8
     }
 
     function bar_toggle()
@@ -64,6 +66,8 @@ local bar = function(s)
     s.notificationCenterBar = require('widget.bar.notifications-bar')(colors.pink, 7)
     s.menu = require('widget.bar.menu')(colors.comment, 7)
     s.volume = require('widget.bar.volume')(colors.comment, 7)
+    s.system = require('widget.bar.system')(colors.comment, 7)
+    s.docker = require('widget.bar.docker')(colors.cyan, 7)
 
     local tags = require('widget.bar.tags')(s, colors.purple, colors.cyan, 3)
 
@@ -75,7 +79,8 @@ local bar = function(s)
             spacing = dpi(4),
             s.menu,
             s.focused,
-            tags
+            tags,
+            s.docker
         },
         {
             layout = wibox.layout.fixed.horizontal,
@@ -85,15 +90,15 @@ local bar = function(s)
         {
             layout = wibox.layout.fixed.horizontal,
             spacing = dpi(4),
-            s.notificationCenterBar,
             s.calendar,
             s.volume,
-            -- s.keyboard,
+            s.system,
+            s.notificationCenterBar,
             s.end_session
-        }
+        },
     }
 
-    return panel
+    return s.panel
 end
 
 awesome.connect_signal("bar:toggle", function()
